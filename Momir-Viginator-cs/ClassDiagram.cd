@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Momir_Viginator_cs.OnlineScryfallFactory">
+    <Position X="14.75" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAQACAAA=</HashCode>
+      <FileName>OnlineScryfallFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.146" />
+  </Class>
+  <Class Name="Momir_Viginator_cs.ScryfallJson.Face">
+    <Position X="12" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAABAAAAAABAAAAAAAAAAEEAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>OnlineScryfallFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Momir_Viginator_cs.ScryfallCard">
+    <Position X="15" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAoABAAIAAAEAAAAAACAAAAEEEAAACAAAAAAAAIgI=</HashCode>
+      <FileName>ScryfallCard.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Momir_Viginator_cs.ICardFactory">
+    <Position X="17.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQACAAA=</HashCode>
+      <FileName>ICardFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Momir_Viginator_cs.ICard">
+    <Position X="17.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAoAAAAIAAAAAAAAAAAAAAgAEEAAACAAAAAAAAAAI=</HashCode>
+      <FileName>ICard.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
