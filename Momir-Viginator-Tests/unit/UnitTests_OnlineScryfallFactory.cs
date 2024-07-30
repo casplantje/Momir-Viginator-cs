@@ -24,8 +24,8 @@ namespace Momir_Viginator_Tests
 
             Assert.NotNull(card);
 
-            Assert.AreEqual(9, card.power);
-            Assert.AreEqual(9, card.defense);
+            Assert.AreEqual("9", card.power);
+            Assert.AreEqual("9", card.defense);
             Assert.AreEqual("Draco", card.name);
             Assert.AreEqual("{16}", card.manaCost);
         }
@@ -37,10 +37,10 @@ namespace Momir_Viginator_Tests
 
             Assert.NotNull(card);
 
-            Assert.AreEqual(card.power, 2);
-            Assert.AreEqual(card.defense, 3);
-            Assert.AreEqual(card.name, "Balustrade Spy");
-            Assert.AreEqual(card.manaCost, "{3}{B}");
+            Assert.AreEqual("2", card.power);
+            Assert.AreEqual("3", card.defense);
+            Assert.AreEqual("Balustrade Spy", card.name);
+            Assert.AreEqual("{3}{B}", card.manaCost);
         }
 
         [Test]
@@ -50,14 +50,24 @@ namespace Momir_Viginator_Tests
 
             Assert.NotNull(card);
             Assert.NotNull(card.otherSide);
-            Assert.AreEqual(card.name, "Graveyard Trespasser");
-            Assert.AreEqual(card.power, 3);
-            Assert.AreEqual(card.defense, 3);
-            Assert.AreEqual(card.manaCost, "{2}{B}");
+            Assert.AreEqual("Graveyard Trespasser", card.name);
+            Assert.AreEqual("3", card.power);
+            Assert.AreEqual("3", card.defense);
+            Assert.AreEqual("{2}{B}", card.manaCost);
 
-            Assert.AreEqual(card.otherSide.name, "Graveyard Glutton");
-            Assert.AreEqual(card.otherSide.power, 4);
-            Assert.AreEqual(card.otherSide.defense, 4);
+            Assert.AreEqual("Graveyard Glutton", card.otherSide.name);
+            Assert.AreEqual("4", card.otherSide.power);
+            Assert.AreEqual("4", card.otherSide.defense);
+        }
+
+        [Test]
+        public void WhenGettingACreatureWithVariablePowerAndToughness_ThenItIsParsedCorrectly()
+        {
+            var card = m_factory.makeByName("Yavimaya Kavu");
+
+            Assert.NotNull(card);
+            Assert.AreEqual("*", card.power);
+            Assert.AreEqual("*", card.defense);
         }
     }
 }

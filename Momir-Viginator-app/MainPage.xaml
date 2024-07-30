@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Momir_Viginator_app.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="15,0"
+            Spacing="5">
+            <Image
+                x:Name="cardPicture"
+                HeightRequest="680"
+                Aspect="AspectFit"
+                SemanticProperties.Description="Card" />
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="cmcLabel" Text="CMC: 0" FontSize="Large" />
+                <Stepper x:Name="cmcStepper"  Minimum="0" Increment="1" ValueChanged="cmcStepper_ValueChanged"/>
+            </StackLayout>
+            <Button
+                x:Name="generateBtn"
+                Text="Generate" 
+                SemanticProperties.Hint="Generates a creature"
+                Clicked="OnGenerateClicked"
+                HorizontalOptions="Fill"
+                FontSize="Large"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

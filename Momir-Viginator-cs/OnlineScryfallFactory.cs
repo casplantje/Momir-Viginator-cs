@@ -27,8 +27,8 @@ namespace Momir_Viginator_cs
             public string mana_cost { get; set; }
             public string oracle_text { get; set; }
             public string flavor_text { get; set; }
-            public float power { get; set; }
-            public float toughness { get; set; }
+            public string power { get; set; }
+            public string toughness { get; set; }
         }
         public class Card : Face
         {
@@ -40,17 +40,23 @@ namespace Momir_Viginator_cs
     {
         private ScryfallCard faceToCard(ScryfallJson.Face face)
         {
-            ScryfallCard card = new ScryfallCard();
+            try
+            {
+                ScryfallCard card = new ScryfallCard();
 
-            card.name = face.name;
-            card.oracleText = face.oracle_text;
-            card.flavourText = face.flavor_text;
-            card.power = face.power;
-            card.defense = face.toughness;
-            card.manaCost = face.mana_cost;
-            card.picture = getPicture(face.image_uris.border_crop);
+                card.name = face.name;
+                card.oracleText = face.oracle_text;
+                card.flavourText = face.flavor_text;
+                card.power = face.power;
+                card.defense = face.toughness;
+                card.manaCost = face.mana_cost;
+                card.imageUrl = face.image_uris.border_crop;
 
-            return card;
+                return card;
+            } catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         private ScryfallCard JsonToCard(string json)
@@ -63,7 +69,10 @@ namespace Momir_Viginator_cs
                 if (resultingObject.card_faces != null)
                 {
                     card = faceToCard(resultingObject.card_faces[0]);
-                    card.otherSide = faceToCard(resultingObject.card_faces[1]);
+                    if (card != null)
+                    {
+                        card.otherSide = faceToCard(resultingObject.card_faces[1]);
+                    }
                 }
                 else
                 {
@@ -119,22 +128,6 @@ namespace Momir_Viginator_cs
                 return JsonToCard(cardJson);
             }
             else
-            {
-                return null;
-            }
-        }
-
-        private System.Drawing.Image getPicture(string url)
-        {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri(url);
-            HttpResponseMessage response = client.GetAsync(url).Result;
-            System.Drawing.Image image;
-            if (response.IsSuccessStatusCode)
-            {
-                image = System.Drawing.Image.FromStream(response.Content.ReadAsStream());
-                return image;
-            } else
             {
                 return null;
             }

@@ -8,14 +8,14 @@ namespace Momir_Viginator_cs
 {
     public class ScryfallCard : ICard
     {
-        private float m_defense;
+        private string m_defense;
         private string m_flavourText;
         private string m_manaCost;
         private string m_name;
         private string m_oracleText;
-        private Image m_picture;
-        private float m_power;
+        private string m_power;
         private ICard m_otherCard;
+        private string m_imageUrl;
 
         public ScryfallCard()
         {
@@ -26,28 +26,16 @@ namespace Momir_Viginator_cs
             m_otherCard = null;
         }
 
-        public float? defense
+        public string defense
         {
             get => m_defense;
-            set
-            {
-                if (value != null)
-                {
-                    m_defense = value.Value;
-                }
-            }
+            set => m_defense = value;
         }
 
-        public float? power
+        public string power
         {
             get => m_power;
-            set
-            {
-                if (value != null)
-                {
-                    m_power = value.Value;
-                }
-            }
+            set => m_power = value;
         }
 
         public string flavourText
@@ -74,15 +62,34 @@ namespace Momir_Viginator_cs
             set => m_oracleText = value;
         }
 
-        public Image picture
+        public ICard otherSide
         {
-            get => m_picture;
-            set => m_picture = value;
-        }
-        public ICard otherSide 
-        { 
             get => m_otherCard;
             set => m_otherCard = value;
+        }
+
+        public string imageUrl
+        {
+            get => m_imageUrl;
+            set => m_imageUrl = value;
+        }
+
+        public Image picture()
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(m_imageUrl);
+            HttpResponseMessage response = client.GetAsync(m_imageUrl).Result;
+            System.Drawing.Image image;
+            if (response.IsSuccessStatusCode)
+            {
+                var imageStream = response.Content.ReadAsStream();
+                image = System.Drawing.Image.FromStream(imageStream);
+                return image;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
