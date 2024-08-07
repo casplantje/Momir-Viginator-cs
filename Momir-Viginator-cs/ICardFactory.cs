@@ -7,8 +7,7 @@ namespace Momir_Viginator_cs
 {
     public interface ICardFactory
     {
-
-        ICard makeRandom(int convertedManaCost);
-        ICard makeByName(string name);
+        Task<ICard?> makeRandomAsync(int convertedManaCost);
+        Task<ICard?> makeByNameAsync(string name);
     }
 }

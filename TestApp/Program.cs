@@ -3,10 +3,11 @@
 using Momir_Viginator_cs;
 
 Console.WriteLine("This is a testing app that will retrieve a random card and output its relevant data");
-
 OnlineScryfallFactory factory = new OnlineScryfallFactory();
 
-var card = factory.makeRandom(3);
+var cardTask = factory.makeRandomAsync(3);
+cardTask.Wait();
+var card = cardTask.Result;
 
 if (card != null)
 {

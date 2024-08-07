@@ -5,7 +5,7 @@ namespace Momir_Viginator_app
 {
     public partial class Generator : ContentPage
     {
-        ICardFactory m_factory;
+        /*ICardFactory m_factory;
 
         private void setCardPicture(ICard card)
         {
@@ -35,6 +35,11 @@ namespace Momir_Viginator_app
             {
                 setCardPicture(card);
             }
+        }*/
+
+        public Generator()
+        {
+            InitializeComponent();
         }
 
         private void cmcStepper_ValueChanged(object sender, ValueChangedEventArgs e)

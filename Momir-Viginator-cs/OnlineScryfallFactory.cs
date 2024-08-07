@@ -87,19 +87,17 @@ namespace Momir_Viginator_cs
             }
         }
 
-        private string MakeScryfallRequest(string path, string parameters)
+        private async Task<string> MakeScryfallRequestAsync(string path, string parameters)
         {
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("https://api.scryfall.com/"+path);
+            client.BaseAddress = new Uri("https://api.scryfall.com/" + path);
             client.DefaultRequestHeaders.Add("User-Agent", "Momir-viginator-cs");
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("?"+parameters).Result;
+            HttpResponseMessage response = client.GetAsync("?" + parameters).Result;
 
             if (response.IsSuccessStatusCode)
             {
-                var task = response.Content.ReadAsStringAsync();
-                task.Wait();
-                return task.Result;
+                return await response.Content.ReadAsStringAsync();
             }
             else
             {
@@ -107,22 +105,23 @@ namespace Momir_Viginator_cs
             }
         }
 
-        public ICard makeRandom(int convertedManaCost)
+        public async Task<ICard?> makeRandomAsync(int convertedManaCost)
         {
-            string cardJson = MakeScryfallRequest("cards/random", "q=t:creature+cmc:" + convertedManaCost.ToString());
+            var cardJson = await MakeScryfallRequestAsync("cards/random", "q=t:creature+cmc:" + convertedManaCost.ToString());
             if (cardJson != null)
             {
                 return JsonToCard(cardJson);
-            } else
+            }
+            else
             {
                 return null;
             }
         }
 
-        public ICard makeByName(string name)
+        public async Task<ICard?> makeByNameAsync(string name)
         {
             name = name.Replace(' ', '+');
-            string cardJson = MakeScryfallRequest("cards/named", "exact=" + name);
+            string cardJson = await MakeScryfallRequestAsync("cards/named", "exact=" + name);
             if (cardJson != null)
             {
                 return JsonToCard(cardJson);

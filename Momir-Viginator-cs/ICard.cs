@@ -15,6 +15,6 @@ namespace Momir_Viginator_cs
         string oracleText { get; }
         ICard otherSide { get; }
         string imageUrl { get; }
-        System.Drawing.Image picture();
+        Microsoft.Maui.Graphics.IImage picture();
     }
 }

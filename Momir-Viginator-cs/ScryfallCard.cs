@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using Microsoft.Maui.Graphics.Platform;
 
 namespace Momir_Viginator_cs
 {
@@ -16,6 +17,7 @@ namespace Momir_Viginator_cs
         private string m_power;
         private ICard m_otherCard;
         private string m_imageUrl;
+        private Microsoft.Maui.Graphics.IImage m_cachedPicture;
 
         public ScryfallCard()
         {
@@ -24,6 +26,7 @@ namespace Momir_Viginator_cs
             m_oracleText = "";
             m_manaCost = "";
             m_otherCard = null;
+            m_cachedPicture = null;
         }
 
         public string defense
@@ -74,8 +77,10 @@ namespace Momir_Viginator_cs
             set => m_imageUrl = value;
         }
 
-        public Image picture()
+        public Microsoft.Maui.Graphics.IImage picture()
         {
+            if (m_cachedPicture != null) return m_cachedPicture;
+
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(m_imageUrl);
             HttpResponseMessage response = client.GetAsync(m_imageUrl).Result;
@@ -83,8 +88,8 @@ namespace Momir_Viginator_cs
             if (response.IsSuccessStatusCode)
             {
                 var imageStream = response.Content.ReadAsStream();
-                image = System.Drawing.Image.FromStream(imageStream);
-                return image;
+                m_cachedPicture = PlatformImage.FromStream(imageStream);
+                return m_cachedPicture;
             }
             else
             {
