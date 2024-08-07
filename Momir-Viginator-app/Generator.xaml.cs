@@ -3,9 +3,9 @@ using System.Drawing;
 
 namespace Momir_Viginator_app
 {
-    public partial class MainPage : ContentPage
+    public partial class Generator : ContentPage
     {
-        OnlineScryfallFactory m_factory;
+        ICardFactory m_factory;
 
         private void setCardPicture(ICard card)
         {
@@ -16,7 +16,7 @@ namespace Momir_Viginator_app
             cardPicture.Source = ImageSource.FromUri(new Uri(card.imageUrl));
         }
 
-        public MainPage()
+        public Generator()
         {
             m_factory = new OnlineScryfallFactory();
             InitializeComponent();

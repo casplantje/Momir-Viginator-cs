@@ -101,4 +101,19 @@
 	  <Folder Include="Resources\Images\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Generator.xaml.cs">
+	    <DependentUpon>Generator.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="CardSearch.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Settings.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
