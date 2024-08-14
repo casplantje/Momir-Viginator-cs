@@ -1,4 +1,5 @@
-﻿using Momir_Viginator_cs;
+﻿using CommunityToolkit.Mvvm.Input;
+using Momir_Viginator_cs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,19 @@ using System.Windows.Input;
 
 namespace Momir_Viginator_app.ViewModels
 {   
-    public class GeneratorViewModel: CardViewModel
+    public partial class GeneratorViewModel: CardViewModel
     {
         private int m_convertedManaCost;
 
-        public ICommand generateCommand { get; private set; }
+        [RelayCommand]
+        private async Task Generate()
+        {
+            Card = await cardFactory.makeRandomAsync(m_convertedManaCost);
+            if (Preferences.Get("printOnRandomlyGenerated", false))
+            {
+                await PrintCard();
+            }
+        }
         public float convertedManaCost
         {
             set => m_convertedManaCost = (int)value;
@@ -22,10 +31,6 @@ namespace Momir_Viginator_app.ViewModels
         public GeneratorViewModel(ICardFactory factory)
             : base(factory)
         {
-            generateCommand = new Command(async () => {
-                card = await cardFactory.makeRandomAsync(m_convertedManaCost);
-            });
-
             clearCard();
         }
     }

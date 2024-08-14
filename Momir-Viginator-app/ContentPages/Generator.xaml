@@ -15,7 +15,7 @@
                 HeightRequest="680"
                 Aspect="AspectFit"
                 SemanticProperties.Description="Card"
-                Source="{Binding cardSource}"/>
+                Source="{Binding CardSource}"/>
             <StackLayout Orientation="Horizontal">
                 <Label x:Name="cmcLabel" Text="CMC: 0" FontSize="Large" />
                 <Stepper x:Name="cmcStepper"  Minimum="0" Increment="1" Value="{Binding convertedManaCost}" ValueChanged="cmcStepper_ValueChanged"/>
@@ -23,7 +23,13 @@
             <Button
                 Text="Generate" 
                 SemanticProperties.Hint="Generates a creature"
-                Command="{Binding generateCommand}"
+                Command="{Binding GenerateCommand}"
+                HorizontalOptions="Fill"
+                FontSize="Large"/>
+            <Button
+                Text="Print" 
+                SemanticProperties.Hint="Print out the card"
+                Command="{Binding PrintCardCommand}"
                 HorizontalOptions="Fill"
                 FontSize="Large"/>
         </VerticalStackLayout>

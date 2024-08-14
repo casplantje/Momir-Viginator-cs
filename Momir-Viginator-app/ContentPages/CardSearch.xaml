@@ -6,26 +6,28 @@
              xmlns:local="clr-namespace:Momir_Viginator_app.ViewModels"
              x:DataType="local:CardSearchViewModel">
 
-    <VerticalStackLayout>
-        <Image
-            x:Name="cardPicture"
-            HeightRequest="680"
-            Aspect="AspectFit"
-            SemanticProperties.Description="Card"
-            Source="{Binding cardSource}"/>
-        <Entry x:Name="searchBox" Placeholder="Card Name" Text="{Binding searchName}" 
-               ReturnCommand="{Binding searchCommand}" />
-        <Button
-            Text="Search" 
-            SemanticProperties.Hint="Search for card"
-            Command="{Binding searchCommand}"
-            HorizontalOptions="Fill"
-            FontSize="Large"/>
-        <Button
-            Text="Print" 
-            SemanticProperties.Hint="Print out the card"
-            Command="{Binding printCardCommand}"
-            HorizontalOptions="Fill"
-            FontSize="Large"/>
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Image
+                x:Name="cardPicture"
+                HeightRequest="680"
+                Aspect="AspectFit"
+                SemanticProperties.Description="Card"
+                Source="{Binding CardSource}"/>
+            <Entry x:Name="searchBox" Placeholder="Card Name" Text="{Binding SearchName}" 
+                   ReturnCommand="{Binding SearchCommand}" />
+            <Button
+                Text="Search" 
+                SemanticProperties.Hint="Search for card"
+                Command="{Binding SearchCommand}"
+                HorizontalOptions="Fill"
+                FontSize="Large"/>
+            <Button
+                Text="Print" 
+                SemanticProperties.Hint="Print out the card"
+                Command="{Binding PrintCardCommand}"
+                HorizontalOptions="Fill"
+                FontSize="Large"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

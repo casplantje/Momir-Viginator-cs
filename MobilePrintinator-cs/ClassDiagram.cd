@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MobilePrintinator_cs.ESCPOSPrinter">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAFAQIABBAAAABAMAAIAIIAAAgAVAAAABiAAEAAiA=</HashCode>
+      <FileName>ESCPOSPrinter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="MobilePrintinator_cs.IESCPOSDriver">
+    <Position X="5.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQIQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IESCPOSDriver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MobilePrintinator_cs.IMobilePrinter">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAABAAAABAAAAIAIIAAAgABAAAAACAAEAACA=</HashCode>
+      <FileName>IMobilePrinter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MobilePrintinator_cs.IBufferBuilder">
+    <Position X="11.25" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAA=</HashCode>
+      <FileName>IBufferBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,30 +1,27 @@
-﻿using Momir_Viginator_cs;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using MobilePrintinator;
+using MobilePrintinator_cs;
+using Momir_Viginator_cs;
+using SkiaSharp;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace Momir_Viginator_app.ViewModels
 {
-    public partial class CardViewModel : INotifyPropertyChanged
+    public partial class CardViewModel : ObservableObject
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private ImageSource m_cardSource;
+        IMobilePrinter m_printer;
+
         private ICardFactory m_factory;
         private ICard? m_card;
 
-        public ICommand printCardCommand { get; private set; }
-
-        public ImageSource cardSource {
-            get => m_cardSource;
-            private set
-            {
-                m_cardSource = value;
-                onPropertyChanged();
-            }
-        }
-
-        protected ICard? card
+        [ObservableProperty]
+        private ImageSource m_cardSource;
+        protected ICard? Card
         {
             get => m_card;
             set
@@ -32,7 +29,7 @@ namespace Momir_Viginator_app.ViewModels
                 m_card = value;
                 if (m_card != null)
                 {
-                    cardSource = ImageSource.FromStream(() => m_card.picture().AsStream());
+                    CardSource = ImageSource.FromStream(() => m_card.picture().AsStream());
                 } else
                 {
                     clearCard();
@@ -41,9 +38,26 @@ namespace Momir_Viginator_app.ViewModels
             }
         }
 
+        [RelayCommand]
+        protected async Task PrintCard()
+        {
+            if (Card == null)
+            {
+                return;
+            }
+
+            if (m_printer != null)
+            {
+                m_printer.Image(SKBitmap.Decode(Card.picture().AsStream()), true);
+                m_printer.Cut();
+                await m_printer.PrintBufferAsync();
+            }
+
+        }
+
         protected void clearCard()
         {
-            cardSource = ImageSource.FromFile("magic_card_back.png");
+            CardSource = ImageSource.FromFile("magic_card_back.png");
         }
 
         protected ICardFactory cardFactory {
@@ -52,7 +66,7 @@ namespace Momir_Viginator_app.ViewModels
 
         public CardViewModel(ICardFactory factory) {
             m_factory = factory;
-            printCardCommand = new Command(() => { });
+            m_printer = App.Current!.MainPage!.Handler!.MauiContext!.Services.GetRequiredService<IMobilePrintinatorService>().Printer();
         }
 
         public void onPropertyChanged([CallerMemberName] string name = "") =>

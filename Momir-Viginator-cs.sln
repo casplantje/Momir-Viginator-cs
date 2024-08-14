@@ -12,10 +12,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Momir-Viginator-Tests", "Mo
 		{D2BB6030-6387-40EB-AF61-FC02B7619A4E} = {D2BB6030-6387-40EB-AF61-FC02B7619A4E}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Momir-Viginator-app", "Momir-Viginator-app\Momir-Viginator-app.csproj", "{B40B8000-39F0-488F-9385-44477CAD19BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Momir-Viginator-app", "Momir-Viginator-app\Momir-Viginator-app.csproj", "{B40B8000-39F0-488F-9385-44477CAD19BE}"
 	ProjectSection(ProjectDependencies) = postProject
+		{0B7C719A-573C-429C-994D-305993D5DC83} = {0B7C719A-573C-429C-994D-305993D5DC83}
 		{D2BB6030-6387-40EB-AF61-FC02B7619A4E} = {D2BB6030-6387-40EB-AF61-FC02B7619A4E}
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobilePrintinator", "MobilePrintinator\MobilePrintinator.csproj", "{0B7C719A-573C-429C-994D-305993D5DC83}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobilePrintinator-Tests", "MobilePrintinator-Tests\MobilePrintinator-Tests.csproj", "{415BEB8A-2B4E-4C41-940B-87479B3B7677}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobilePrintinator-cs", "MobilePrintinator-cs\MobilePrintinator-cs.csproj", "{97F2303B-F2B3-4ACF-820F-DD9C7E090594}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +48,18 @@ Global
 		{B40B8000-39F0-488F-9385-44477CAD19BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B40B8000-39F0-488F-9385-44477CAD19BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B40B8000-39F0-488F-9385-44477CAD19BE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0B7C719A-573C-429C-994D-305993D5DC83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B7C719A-573C-429C-994D-305993D5DC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B7C719A-573C-429C-994D-305993D5DC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B7C719A-573C-429C-994D-305993D5DC83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{415BEB8A-2B4E-4C41-940B-87479B3B7677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{415BEB8A-2B4E-4C41-940B-87479B3B7677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{415BEB8A-2B4E-4C41-940B-87479B3B7677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{415BEB8A-2B4E-4C41-940B-87479B3B7677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97F2303B-F2B3-4ACF-820F-DD9C7E090594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97F2303B-F2B3-4ACF-820F-DD9C7E090594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97F2303B-F2B3-4ACF-820F-DD9C7E090594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97F2303B-F2B3-4ACF-820F-DD9C7E090594}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

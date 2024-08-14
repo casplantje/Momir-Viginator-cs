@@ -6,28 +6,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Momir_Viginator_app.ViewModels
 {
-    public class CardSearchViewModel : CardViewModel
+    public partial class CardSearchViewModel : CardViewModel
     {
-        private string m_name;
+        [ObservableProperty]
+        private string m_searchName;
 
-        public string searchName
+        [RelayCommand]
+        private async Task Search()
         {
-            get => m_name;
-            set => m_name = value;
+            Card = await cardFactory.makeByNameAsync(SearchName);
         }
-
-        public ICommand searchCommand { get; private set; }
 
         public CardSearchViewModel(ICardFactory factory)
             : base(factory)
         {
-            m_name = "";
-            searchCommand = new Command(async () => {
-                card = await cardFactory.makeByNameAsync(m_name);
-            });
+            SearchName = "";
 
             clearCard();
         }
