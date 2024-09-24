@@ -123,6 +123,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="ContentPages\About.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ContentPages\CardSearch.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

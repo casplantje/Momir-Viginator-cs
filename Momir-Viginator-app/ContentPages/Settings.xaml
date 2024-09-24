@@ -10,97 +10,137 @@
     <ContentPage.Resources>
         <Style x:Key="InvalidEntryStyle" TargetType="Entry">
             <Setter Property="TextColor" Value="Red" />
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="VerticalOptions" Value="Center" />
         </Style>
         <Style x:Key="ValidEntryStyle" TargetType="Entry">
             <Setter Property="TextColor" Value="Green" />
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+        
+        <Style x:Key="SettingsBorderStyle" TargetType="Border">
+            <Setter Property="StrokeThickness" Value="2" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 0,15,15,15" />
+            <Setter Property="Margin" Value="1,2,1,2" />
+        </Style>
+        <Style x:Key="SettingsLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        </Style>
+        <Style x:Key="setingsStackStyle" TargetType="StackLayout">
+            <Setter Property="Orientation" Value="Horizontal" />
+        </Style>
+        <Style x:Key="TitleStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="Padding" Value="15,5,0,5" />
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="HorizontalOptions" Value="Fill" />
+            <Setter Property="Margin" Value="2,2,2,2" />
         </Style>
     </ContentPage.Resources>
 
     <ScrollView>
         <VerticalStackLayout>
-            <Label Text="General" FontSize="30" FontAttributes="Bold" />
-            <FlexLayout AlignItems="Start" JustifyContent="SpaceBetween">
-                <Label Text="Immediately print&#10;generated creature card" FontSize="Title" LineBreakMode="WordWrap" />
-                <Switch IsToggled="{Binding PrintOnRandomlyGenerated}" />
-            </FlexLayout>
+            <Label Text="General" Style="{StaticResource TitleStyle}" />
+            <Border Style="{StaticResource SettingsBorderStyle}">
+                <StackLayout Style="{StaticResource setingsStackStyle}">
+                    <Label Text="Immediately print generated creature card" Style="{StaticResource SettingsLabelStyle}" />
+                    <Switch IsToggled="{Binding PrintOnRandomlyGenerated}" />
+                </StackLayout>
+            </Border>
 
-            <Label Text="Printer" FontSize="30" FontAttributes="Bold" />
-            <FlexLayout AlignItems="Start" JustifyContent="SpaceBetween">
-                <Label Text="Printer name: " FontSize="Large" />
-                <Entry Text="{Binding PrinterName}" FontSize="Large" />
-            </FlexLayout>
+            <Label Text="Printer" Style="{StaticResource TitleStyle}" />
+            <Border Style="{StaticResource SettingsBorderStyle}">
+                <StackLayout Style="{StaticResource setingsStackStyle}">
+                    <Label Text="Printer name: " Style="{StaticResource SettingsLabelStyle}" />
+                    <Entry Text="{Binding PrinterName}" FontSize="Large" />
+                </StackLayout>
+            </Border>
 
-            <FlexLayout AlignItems="Start" JustifyContent="SpaceBetween">
-                <Label Text="Paper width(mm): " FontSize="Large" />
-                <Entry Keyboard="Numeric" Text="{Binding PaperWidthInmm}">
-                    <Entry.Behaviors>
-                        <toolkit:NumericValidationBehavior 
+            <Border Style="{StaticResource SettingsBorderStyle}">
+                <StackLayout Style="{StaticResource setingsStackStyle}">
+                    <Label Text="Paper width(mm): " Style="{StaticResource SettingsLabelStyle}" />
+                    <Entry Keyboard="Numeric" Text="{Binding PaperWidthInmm}">
+                        <Entry.Behaviors>
+                            <toolkit:NumericValidationBehavior 
                             InvalidStyle="{StaticResource InvalidEntryStyle}"
                             ValidStyle="{StaticResource ValidEntryStyle}"
                             Flags="ValidateOnValueChanged"
                             MinimumValue="0.0"
                             MaximumValue="1000.0"
                             MaximumDecimalPlaces="2" />
-                    </Entry.Behaviors>
-                </Entry>
-            </FlexLayout>
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+            </Border>
 
-            <FlexLayout AlignItems="Start" JustifyContent="SpaceBetween">
-                <Label Text="Dpi: " FontSize="Large" />
-                <Entry Keyboard="Numeric" Text="{Binding Dpi}" >
-                    <Entry.Behaviors>
-                        <toolkit:NumericValidationBehavior 
+            <Border Style="{StaticResource SettingsBorderStyle}">
+                <StackLayout Style="{StaticResource setingsStackStyle}">
+                    <Label Text="Dpi: " Style="{StaticResource SettingsLabelStyle}" />
+                    <Entry Keyboard="Numeric" Text="{Binding Dpi}" >
+                        <Entry.Behaviors>
+                            <toolkit:NumericValidationBehavior 
                             InvalidStyle="{StaticResource InvalidEntryStyle}"
                             ValidStyle="{StaticResource ValidEntryStyle}"
                             Flags="ValidateOnValueChanged"
                             MinimumValue="0.0"
                             MaximumValue="1000.0"
                             MaximumDecimalPlaces="2"/>
-                    </Entry.Behaviors>
-                </Entry>
-            </FlexLayout>
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+            </Border>
 
-            <FlexLayout AlignItems="Start" JustifyContent="SpaceBetween">
-                <Label Text="Margin left(mm): " FontSize="Large" />
-                <Entry Keyboard="Numeric" Text="{Binding MarginLeftInInmm}" >
-                    <Entry.Behaviors>
-                        <toolkit:NumericValidationBehavior 
+            <Border Style="{StaticResource SettingsBorderStyle}">
+                <StackLayout Style="{StaticResource setingsStackStyle}">
+                    <Label Text="Margin left(mm): " Style="{StaticResource SettingsLabelStyle}" />
+                    <Entry Keyboard="Numeric" Text="{Binding MarginLeftInInmm}" >
+                        <Entry.Behaviors>
+                            <toolkit:NumericValidationBehavior 
                             InvalidStyle="{StaticResource InvalidEntryStyle}"
                             ValidStyle="{StaticResource ValidEntryStyle}"
                             Flags="ValidateOnValueChanged"
                             MinimumValue="0.0"
                             MaximumValue="1000.0"
                             MaximumDecimalPlaces="2"/>
-                    </Entry.Behaviors>
-                </Entry>
-            </FlexLayout>
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+            </Border>
 
-            <FlexLayout AlignItems="Start" JustifyContent="SpaceBetween">
-                <Label Text="Margin right(mm): " FontSize="Large" />
-                <Entry Keyboard="Numeric" Text="{Binding MarginRightInInmm}" >
-                    <Entry.Behaviors>
-                        <toolkit:NumericValidationBehavior 
-                            InvalidStyle="{StaticResource InvalidEntryStyle}"
-                            ValidStyle="{StaticResource ValidEntryStyle}"
-                            Flags="ValidateOnValueChanged"
-                            MinimumValue="0.0"
-                            MaximumValue="1000.0"
-                            MaximumDecimalPlaces="2"/>
-                    </Entry.Behaviors>
-                </Entry>
-            </FlexLayout>
+            <Border Style="{StaticResource SettingsBorderStyle}">
+                <StackLayout Style="{StaticResource setingsStackStyle}">
+                    <Label Text="Margin right(mm): " Style="{StaticResource SettingsLabelStyle}" />
+                    <Entry Keyboard="Numeric" Text="{Binding MarginRightInInmm}" >
+                        <Entry.Behaviors>
+                            <toolkit:NumericValidationBehavior 
+                                InvalidStyle="{StaticResource InvalidEntryStyle}"
+                                ValidStyle="{StaticResource ValidEntryStyle}"
+                                Flags="ValidateOnValueChanged"
+                                MinimumValue="0.0"
+                                MaximumValue="1000.0"
+                                MaximumDecimalPlaces="2"/>
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+            </Border>
 
             <Button
                 Text="Apply printer settings"
                 Command="{Binding ApplySettingsCommand}"
-                HorizontalOptions="Fill"
-                FontSize="Large" />
+                Style="{StaticResource ButtonStyle}" />
 
             <Button
                 Text="Print Testpage" 
                 Command="{Binding TestPrintCommand}"
-                HorizontalOptions="Fill"
-                FontSize="Large"/>
+                Style="{StaticResource ButtonStyle}" />
             
             
         </VerticalStackLayout>

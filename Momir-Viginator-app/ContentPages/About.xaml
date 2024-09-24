@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Momir_Viginator_app.About"
+             Title="About">
+    <VerticalStackLayout>
+        <Label 
+            Text="Momir Viginator version 0.1"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label
+            Text="Copyright © 2024, Cas de Rooij"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Margin="4,3,4,0"/>
+        <Label
+            Text="This app makes use of Scryfall to download card artworks. It is not affiliated with Scryfall."
+            FontSize="Small"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Margin="4,20,4,0" />
+
+        <Label Text="Momir Viginator is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC."
+            FontSize="Small"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" 
+            Margin="4,20,4,0"/>
+    </VerticalStackLayout>
+</ContentPage>

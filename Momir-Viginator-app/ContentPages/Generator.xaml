@@ -5,33 +5,48 @@
              Title="Generator"
              xmlns:local="clr-namespace:Momir_Viginator_app.ViewModels"
              x:DataType="local:GeneratorViewModel">
-
-    <ScrollView>
+    <ContentPage.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="HorizontalOptions" Value="Fill" />
+            <Setter Property="Margin" Value="2,2,2,2" />
+        </Style>
+        <Style x:Key="GeneratorBorderStyle" TargetType="Border">
+            <Setter Property="StrokeThickness" Value="2" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 0,15,15,15" />
+            <Setter Property="Margin" Value="1,2,1,2" />
+        </Style>
+    </ContentPage.Resources>
+    
+        <ScrollView>
         <VerticalStackLayout
             Padding="15,0"
             Spacing="5">
-            <Image
+            <Border Style="{StaticResource GeneratorBorderStyle}">
+                <Image
                 x:Name="cardPicture"
-                HeightRequest="680"
                 Aspect="AspectFit"
                 SemanticProperties.Description="Card"
                 Source="{Binding CardSource}"/>
-            <StackLayout Orientation="Horizontal">
-                <Label x:Name="cmcLabel" Text="CMC: 0" FontSize="Large" />
-                <Stepper x:Name="cmcStepper"  Minimum="0" Increment="1" Value="{Binding convertedManaCost}" ValueChanged="cmcStepper_ValueChanged"/>
-            </StackLayout>
+            </Border>
+            <Border Style="{StaticResource GeneratorBorderStyle}">
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="cmcLabel" Text="CMC: 0" FontSize="Large" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                    <Stepper x:Name="cmcStepper"  Minimum="0" Increment="1" Value="{Binding convertedManaCost}" ValueChanged="cmcStepper_ValueChanged"/>
+                </StackLayout>
+            </Border>
             <Button
                 Text="Generate" 
                 SemanticProperties.Hint="Generates a creature"
                 Command="{Binding GenerateCommand}"
-                HorizontalOptions="Fill"
-                FontSize="Large"/>
+                Style="{StaticResource ButtonStyle}" />
             <Button
                 Text="Print" 
                 SemanticProperties.Hint="Print out the card"
                 Command="{Binding PrintCardCommand}"
-                HorizontalOptions="Fill"
-                FontSize="Large"/>
+                Style="{StaticResource ButtonStyle}" />
         </VerticalStackLayout>
     </ScrollView>
 

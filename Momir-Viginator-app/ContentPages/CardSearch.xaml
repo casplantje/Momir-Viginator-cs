@@ -2,32 +2,48 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Momir_Viginator_app.CardSearch"
-             Title="CardSearch"
+             Title="Card Search"
              xmlns:local="clr-namespace:Momir_Viginator_app.ViewModels"
              x:DataType="local:CardSearchViewModel">
 
+    <ContentPage.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="HorizontalOptions" Value="Fill" />
+            <Setter Property="Margin" Value="2,2,2,2" />
+        </Style>
+        <Style x:Key="SearchBorderStyle" TargetType="Border">
+            <Setter Property="StrokeThickness" Value="2" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 0,15,15,15" />
+            <Setter Property="Margin" Value="1,2,1,2" />
+        </Style>
+    </ContentPage.Resources>
+
     <ScrollView>
         <VerticalStackLayout>
-            <Image
+            <Border Style="{StaticResource SearchBorderStyle}">
+                <Image
                 x:Name="cardPicture"
-                HeightRequest="680"
                 Aspect="AspectFit"
                 SemanticProperties.Description="Card"
-                Source="{Binding CardSource}"/>
-            <Entry x:Name="searchBox" Placeholder="Card Name" Text="{Binding SearchName}" 
+                Source="{Binding CardSource}" />
+            </Border>
+            <Border Style="{StaticResource SearchBorderStyle}">
+                <Entry x:Name="searchBox" Placeholder="Card Name" Text="{Binding SearchName}" 
                    ReturnCommand="{Binding SearchCommand}" />
+            </Border>
             <Button
                 Text="Search" 
                 SemanticProperties.Hint="Search for card"
                 Command="{Binding SearchCommand}"
-                HorizontalOptions="Fill"
-                FontSize="Large"/>
+                Style="{StaticResource ButtonStyle}" />
             <Button
                 Text="Print" 
                 SemanticProperties.Hint="Print out the card"
                 Command="{Binding PrintCardCommand}"
-                HorizontalOptions="Fill"
-                FontSize="Large"/>
+                Style="{StaticResource ButtonStyle}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

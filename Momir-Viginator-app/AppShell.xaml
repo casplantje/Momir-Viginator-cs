@@ -21,5 +21,10 @@
             <ShellContent ContentTemplate="{DataTemplate local:Settings}" />
         </Tab>
     </FlyoutItem>
+    <FlyoutItem Title="About">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:About}" />
+        </Tab>
+    </FlyoutItem>
 
 </Shell>
