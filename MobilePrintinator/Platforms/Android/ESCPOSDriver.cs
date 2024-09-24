@@ -6,6 +6,7 @@ using Android.Bluetooth;
 using System.Text;
 using System.Diagnostics;
 using MobilePrintinator_cs;
+using System.Text.RegularExpressions;
 
 namespace MobilePrintinator.Platforms.Android
 {
@@ -64,6 +65,20 @@ namespace MobilePrintinator.Platforms.Android
                     offset += count;
                 }
                 await m_socket.OutputStream.FlushAsync();
+            }
+        }
+
+        public IEnumerable<string> GetBluetoothPrinterNames()
+        {
+            string pattern = "PT-2[0-9]{2}_[0-9A-F]+";
+            List<String> result = new List<String>();
+            if (m_adapter != null && m_adapter.BondedDevices != null)
+            {
+                foreach (BluetoothDevice device in m_adapter.BondedDevices)
+                {
+                    if (Regex.IsMatch(device.Name, pattern))
+                        yield return device.Name;
+                }
             }
         }
     }

@@ -16,6 +16,11 @@ namespace MobilePrintinator.Platforms.Windows
             throw new NotImplementedException();
         }
 
+        public IEnumerable<string> GetBluetoothPrinterNames()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task SendDataAsync(byte[] data)
         {
             throw new NotImplementedException();

@@ -10,5 +10,6 @@ namespace MobilePrintinator_cs
         Task SendDataAsync(byte[] data);
         Task Connect();
         bool isConnected { get; }
+        IEnumerable<string> GetBluetoothPrinterNames();
     }
 }

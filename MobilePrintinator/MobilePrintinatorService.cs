@@ -13,6 +13,7 @@ namespace MobilePrintinator
     public class MobilePrintinatorService : IMobilePrintinatorService
     {
         private IMobilePrinter m_printer;
+        IESCPOSDriver m_driver;
         public MobilePrintinatorService()
         {
             LoadConfiguration();
@@ -21,16 +22,14 @@ namespace MobilePrintinator
         {
             if (properties is ESCPOSPrinterProperties)
             {
-                IESCPOSDriver driver = null;
-
 #if ANDROID
-                driver = new MobilePrintinator.Platforms.Android.ESCPOSDriver(((ESCPOSPrinterProperties)properties).printerName);
+                m_driver = new MobilePrintinator.Platforms.Android.ESCPOSDriver(((ESCPOSPrinterProperties)properties).printerName);
 #elif WINDOWS
-                driver = new MobilePrintinator.Platforms.Windows.ESCPOSDriver();
+                m_driver = new MobilePrintinator.Platforms.Windows.ESCPOSDriver();
 #endif
-                if (driver != null)
+                if (m_driver != null)
                 {
-                    m_printer = new ESCPOSPrinter(driver, (ESCPOSPrinterProperties)properties);
+                    m_printer = new ESCPOSPrinter(m_driver, (ESCPOSPrinterProperties)properties);
                 }
             }
         }
@@ -84,6 +83,11 @@ namespace MobilePrintinator
                 Preferences.Set("dotDensity", escposProperties.dotDensity);
                 Preferences.Set("printerName", escposProperties.printerName);
             }
+        }
+
+        public IEnumerable<string> GetBluetoothPrinterNames()
+        {
+            return m_driver.GetBluetoothPrinterNames();
         }
 
         public IMobilePrinter Printer()

@@ -60,7 +60,8 @@
             <Border Style="{StaticResource SettingsBorderStyle}">
                 <StackLayout Style="{StaticResource setingsStackStyle}">
                     <Label Text="Printer name: " Style="{StaticResource SettingsLabelStyle}" />
-                    <Entry Text="{Binding PrinterName}" FontSize="Large" />
+                    <Picker ItemsSource="{Binding PrinterNames}" SelectedItem="{Binding PrinterName}" FontSize="Large" />
+                    <Button Text="&#x000021BB;" Command="{Binding ReloadPrintersCommand}" FontSize="Large" FontAttributes="Bold" />
                 </StackLayout>
             </Border>
 

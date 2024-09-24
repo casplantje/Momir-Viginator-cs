@@ -32,6 +32,9 @@ namespace MobilePrintinator.ViewModels
         [ObservableProperty]
         private byte m_dotDensity;
 
+        [ObservableProperty]
+        private string[]? m_printerNames;
+
         [RelayCommand]
         private void ApplySettings()
         {
@@ -64,6 +67,13 @@ namespace MobilePrintinator.ViewModels
                 DotDensity = escposProperties.dotDensity;
                 PrinterName = escposProperties.printerName;
             }
+            ReloadPrinters();
+        }
+
+        [RelayCommand]
+        private void ReloadPrinters()
+        {
+            m_printerNames = m_printinatorService.GetBluetoothPrinterNames().ToArray();
         }
 
         protected IMobilePrintinatorService m_printinatorService = null;

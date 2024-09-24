@@ -13,6 +13,6 @@ namespace MobilePrintinator
         void InitConfiguration();
         void SaveConfiguration();
         void LoadConfiguration();
-
+        IEnumerable<string> GetBluetoothPrinterNames();
     }
 }
