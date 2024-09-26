@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.9.34607.119
+VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Momir-Viginator-cs", "Momir-Viginator-cs\Momir-Viginator-cs.csproj", "{D2BB6030-6387-40EB-AF61-FC02B7619A4E}"
 EndProject
@@ -14,15 +14,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Momir-Viginator-Tests", "Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Momir-Viginator-app", "Momir-Viginator-app\Momir-Viginator-app.csproj", "{B40B8000-39F0-488F-9385-44477CAD19BE}"
 	ProjectSection(ProjectDependencies) = postProject
-		{0B7C719A-573C-429C-994D-305993D5DC83} = {0B7C719A-573C-429C-994D-305993D5DC83}
+		{CDA238ED-81F1-4651-8B11-7D23F0321E67} = {CDA238ED-81F1-4651-8B11-7D23F0321E67}
 		{D2BB6030-6387-40EB-AF61-FC02B7619A4E} = {D2BB6030-6387-40EB-AF61-FC02B7619A4E}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobilePrintinator", "MobilePrintinator\MobilePrintinator.csproj", "{0B7C719A-573C-429C-994D-305993D5DC83}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MobilePrintinator", "MobilePrintinator", "{967A31EC-FFCC-4B32-9C01-88BC147E439B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobilePrintinator-Tests", "MobilePrintinator-Tests\MobilePrintinator-Tests.csproj", "{415BEB8A-2B4E-4C41-940B-87479B3B7677}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobilePrintinatorMaui", "..\MobilePrintinator\MobilePrintinatorMaui\MobilePrintinatorMaui.csproj", "{CDA238ED-81F1-4651-8B11-7D23F0321E67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobilePrintinator-cs", "MobilePrintinator-cs\MobilePrintinator-cs.csproj", "{97F2303B-F2B3-4ACF-820F-DD9C7E090594}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobilePrintinator", "..\MobilePrintinator\MobilePrintinator\MobilePrintinator.csproj", "{BCF52CF9-7AD6-497A-98A8-209B679C7D6B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobilePrintinator-Tests", "..\MobilePrintinator\MobilePrintinator-Tests\MobilePrintinator-Tests.csproj", "{D74C14DD-E1B9-4EB6-AE99-21FFA27A586A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{293849B8-755B-40EC-9F12-D59976906EE9}"
+	ProjectSection(SolutionItems) = preProject
+		..\MobilePrintinator\README.md = ..\MobilePrintinator\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,23 +55,29 @@ Global
 		{B40B8000-39F0-488F-9385-44477CAD19BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B40B8000-39F0-488F-9385-44477CAD19BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B40B8000-39F0-488F-9385-44477CAD19BE}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{0B7C719A-573C-429C-994D-305993D5DC83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B7C719A-573C-429C-994D-305993D5DC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B7C719A-573C-429C-994D-305993D5DC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B7C719A-573C-429C-994D-305993D5DC83}.Release|Any CPU.Build.0 = Release|Any CPU
-		{415BEB8A-2B4E-4C41-940B-87479B3B7677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{415BEB8A-2B4E-4C41-940B-87479B3B7677}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{415BEB8A-2B4E-4C41-940B-87479B3B7677}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{415BEB8A-2B4E-4C41-940B-87479B3B7677}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97F2303B-F2B3-4ACF-820F-DD9C7E090594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97F2303B-F2B3-4ACF-820F-DD9C7E090594}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97F2303B-F2B3-4ACF-820F-DD9C7E090594}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97F2303B-F2B3-4ACF-820F-DD9C7E090594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDA238ED-81F1-4651-8B11-7D23F0321E67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDA238ED-81F1-4651-8B11-7D23F0321E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDA238ED-81F1-4651-8B11-7D23F0321E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDA238ED-81F1-4651-8B11-7D23F0321E67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCF52CF9-7AD6-497A-98A8-209B679C7D6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCF52CF9-7AD6-497A-98A8-209B679C7D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCF52CF9-7AD6-497A-98A8-209B679C7D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCF52CF9-7AD6-497A-98A8-209B679C7D6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D74C14DD-E1B9-4EB6-AE99-21FFA27A586A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D74C14DD-E1B9-4EB6-AE99-21FFA27A586A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D74C14DD-E1B9-4EB6-AE99-21FFA27A586A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D74C14DD-E1B9-4EB6-AE99-21FFA27A586A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CDA238ED-81F1-4651-8B11-7D23F0321E67} = {967A31EC-FFCC-4B32-9C01-88BC147E439B}
+		{BCF52CF9-7AD6-497A-98A8-209B679C7D6B} = {967A31EC-FFCC-4B32-9C01-88BC147E439B}
+		{D74C14DD-E1B9-4EB6-AE99-21FFA27A586A} = {967A31EC-FFCC-4B32-9C01-88BC147E439B}
+		{293849B8-755B-40EC-9F12-D59976906EE9} = {967A31EC-FFCC-4B32-9C01-88BC147E439B}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {CD4A56D3-4531-41BC-A91B-C8D7D36CCD61}
+		SolutionGuid = {FF49B7A9-B091-43A3-9F8F-5046AA880115}
 	EndGlobalSection
 EndGlobal

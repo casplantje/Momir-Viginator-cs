@@ -1,12 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MobilePrintinator;
-using MobilePrintinator_cs;
+using MobilePrintinatorMaui;
 using Momir_Viginator_cs;
 using SkiaSharp;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Input;
 
 namespace Momir_Viginator_app.ViewModels
 {

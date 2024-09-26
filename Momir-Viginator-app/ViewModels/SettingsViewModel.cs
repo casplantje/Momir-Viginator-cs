@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
 using MobilePrintinator;
-using MobilePrintinator_cs;
+using MobilePrintinatorMaui;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Momir_Viginator_app.ViewModels
 {
-    public partial class SettingsViewModel : MobilePrintinator.ViewModels.SettingsViewModel
+    public partial class SettingsViewModel : MobilePrintinatorMaui.ViewModels.SettingsViewModel
     {
         public SettingsViewModel() {
             m_printinatorService = App.Current!.MainPage!.Handler!.MauiContext!.Services.GetRequiredService<IMobilePrintinatorService>();

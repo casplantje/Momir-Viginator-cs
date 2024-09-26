@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using MobilePrintinator;
+using MobilePrintinatorMaui;
 using Momir_Viginator_app.ViewModels;
 using Momir_Viginator_cs;
 

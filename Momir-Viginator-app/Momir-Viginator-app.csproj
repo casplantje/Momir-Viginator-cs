@@ -100,7 +100,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\MobilePrintinator\MobilePrintinator.csproj" />
+	  <ProjectReference Include="..\..\MobilePrintinator\MobilePrintinatorMaui\MobilePrintinatorMaui.csproj" />
 	  <ProjectReference Include="..\Momir-Viginator-cs\Momir-Viginator-cs.csproj" />
 	</ItemGroup>
 
