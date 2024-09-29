@@ -56,7 +56,7 @@ namespace Momir_Viginator_app.ViewModels
 
         protected void clearCard()
         {
-            CardSource = ImageSource.FromFile("magic_card_back.png");
+            CardSource = ImageSource.FromFile("card.png");
         }
 
         protected ICardFactory cardFactory {
